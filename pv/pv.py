@@ -13,7 +13,7 @@ async def byyye(client, message):
     dev = await get_dev(client.me.username)
     if user in OWNER or message.from_user.id == dev:
         text = message.text
-        if text == "• تفعيل التواصل •"":
+        if text == "• تفعيل التواصل •":
           if not client.me.username in OFFPV:
              await message.reply_text("**التواصل مفعل من قبل .**")
           try:
