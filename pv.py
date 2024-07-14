@@ -7,13 +7,13 @@ from pyrogram.types import Message
 
 OFFPV = []
 
-@Client.on_message(filters.command(["تفعيل التواصل","تعطيل التواصل"], ""))
+@Client.on_message(filters.command(["• تفعيل التواصل •","• تعطيل التواصل •"], ""))
 async def byyye(client, message):
     user = message.from_user.username
     dev = await get_dev(client.me.username)
     if user in OWNER or message.from_user.id == dev:
         text = message.text
-        if text == "تفعيل التواصل":
+        if text == "• تفعيل التواصل •"":
           if not client.me.username in OFFPV:
              await message.reply_text("**التواصل مفعل من قبل .**")
           try:
@@ -22,7 +22,7 @@ async def byyye(client, message):
             return
           except:
              pass
-        if text == "تعطيل التواصل":
+        if text == "• تعطيل التواصل •":
           if client.me.username in OFFPV:
              await message.reply_text("**التواصل معطل من قبل .**")
           try:
