@@ -1,7 +1,7 @@
 from pyrogram import Client, filters, idle
 from config import OWNER
-from source.info import (is_served_user, add_served_user, joinch)
-from config import SUDORS
+from source.info import (get_users, add_new_user)
+from source.Data import (get_dev)
 from pyrogram.types import Message
 
 
@@ -35,13 +35,11 @@ async def byyye(client, message):
 
 @Client.on_message(filters.private)
 async def botoot(client: Client, message: Message):
- if not client.me.username in OFFPV:
-  if await joinch(message):
-            return
+
   bot_username = client.me.username
   user_id = message.chat.id
-  if not await is_served_user(client, user_id):
-     await add_served_user(client, user_id)
+  if not await get_users(client, user_id):
+     await add_new_user(client, user_id)
   dev = await get_dev(bot_username)
   if message.from_user.id == dev or message.chat.username in OWNER or message.from_user.id == client.me.id:
     if message.reply_to_message:
