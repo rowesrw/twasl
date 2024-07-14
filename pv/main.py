@@ -85,18 +85,6 @@ async def cmd(bot, msg):
 			await msg.reply("• تم اخفاء الكيبورد ارسل /start لعرضه مره اخري", reply_markup=ReplyKeyboardRemove(selective=True), quote=True)
 		if msg.text == "• الاحصائيات •":
 			await msg.reply(f"• عدد الاعضاء: {len(get_users())}\n• عدد المشرفين: {len(SUDORS)}", quote=True)
-		if msg.text == "• تفعيل التواصل •":
-			if not db.get(f"{msg.from_user.id}:twasl:{bot_id}"):
-				await msg.reply("• تم تفعيل التواصل", quote=True)
-				db.set(f"{msg.from_user.id}:twasl:{bot_id}", 1)
-			else:
-				await msg.reply("• التواصل مفعل من قبل", quote=True)
-		if msg.text == "• تعطيل التواصل •":
-			if db.get(f"{msg.from_user.id}:twasl:{bot_id}"):
-				await msg.reply("• تم تعطيل التواصل", quote=True)
-				db.delete(f"{msg.from_user.id}:twasl:{bot_id}")
-			else:
-				await msg.reply("• التواصل غير مفعل", quote=True)
 		if msg.text == "• اذاعه •":
 			await msg.reply("• ارسل الاذاعه ( نص ، ملف ، جهه اتصال ، متحركه ، ملصق ، صوره )", quote=True)
 			db.set(f"{msg.from_user.id}:broadcast:{bot_id}", 1)
