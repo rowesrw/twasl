@@ -1,7 +1,7 @@
 from pyrogram import Client, filters, idle
 from config import OWNER
 from source.info import (is_served_user, add_served_user, joinch)
-from config import
+from config import SUDORS
 from pyrogram.types import Message
 
 
